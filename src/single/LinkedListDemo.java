@@ -105,6 +105,7 @@ public class LinkedListDemo {
 		System.out.println("linkedlist");
 		l.display();
 		System.out.println("Size of linkedList: "+l.size);
+		System.out.println("End");
 		
 	}
 
