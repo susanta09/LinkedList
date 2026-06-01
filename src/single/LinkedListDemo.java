@@ -82,7 +82,81 @@ class LinkedList{
 		}
 
 	}
+	public void removeFirst()
+	{
+		if(head==null)
+		{
+			System.out.println("Linked list was Empty");
+			return;
+		}
+		Node temp=head.next;
+		size--;
+		System.out.println("Removal First Element: "+head.data+" And after removed  first the Element Size: "+size);
+		head=temp;	 
+	}
+	public void removeLast()
+	{
+		if(head==null)
+		{
+			System.out.println("Linked list was Empty");
+			return;
+		}
+		Node temp=head;
+		Node pre=null;
+		while(temp.next!=null)
+		{
+			pre=temp;
+			temp=temp.next;
+		}
+//		System.err.println(pre.data);
+		pre.next=null;
+		size--;
+		System.out.println("Removal Last Element: "+temp.data+" And after removed  Last the Element Size: "+size);	
+	}
+	public void removeAnyPosition(int p)
+	{
+		if(head==null)
+		{
+			System.out.println("Linked list was Empty");
+			return;
+		}
+		if(p==1)
+		{
+			Node temp=head.next;
+			size--;
+			System.out.println("Removal "+p+"TH Element: "+head.data+" And after removed  Last the Element Size: "+size);
+			head=temp;
+		}else if(size==p) {
+			Node temp=head;
+			Node pre=null;
+			while(temp.next!=null)
+			{
+				pre=temp;
+				temp=temp.next;
+			}
+			pre.next=null;
+			size--;
+			System.out.println("Removal "+p+"TH Element: "+temp.data+" And after removed  Last the Element Size: "+size);	
+		}else {
+			Node temp=head;
+			Node pre=null;
+			int i=1;
+			while(i!=p)
+			{
+				i++;
+				pre=temp;
+				temp=temp.next;
+			}
+//			System.out.println(pre.data);
+//			System.err.println(temp.data);
+			pre.next=temp.next;
+			size--;
+			System.out.println("Removal "+p+"TH Element: "+temp.data+" And after removed  Last the Element Size: "+size);	
+		}
+		
+	}
 }
+
 public class LinkedListDemo {
 	public static void main(String[] args) {
 		
@@ -90,22 +164,33 @@ public class LinkedListDemo {
 		l.add(8);
 		l.add(7);
 		l.add(3);
+//		System.out.println("linkedlist");
+//		l.display();
+//		System.out.println("Size of linkedList: "+l.size);
+//		l.addFirst(10);
+//		l.addFirst(20);
+//		System.out.println("linkedlist");
+//		l.display();
+//		System.out.println("Size of linkedList: "+l.size);
+//		l.addAnyPosition(90, 3);
+//		System.out.println("Size of linkedList: "+l.size);
+//		l.display();
+//		l.addAnyPosition(100, l.size);
+//		System.out.println("linkedlist");
+//		l.display();
+//		System.out.println("Size of linkedList: "+l.size);
+//		System.out.println("End");
+		System.out.println("Size of linkedList: "+l.size);
+		l.display();
+//		System.out.println("Size of linkedList: "+l.size);
+//		l.removeFirst();
+//		l.removeFirst();
+//		l.display();
+//		l.removeLast();
+		l.removeAnyPosition(3);
 		System.out.println("linkedlist");
 		l.display();
-		System.out.println("Size of linkedList: "+l.size);
-		l.addFirst(10);
-		l.addFirst(20);
-		System.out.println("linkedlist");
-		l.display();
-		System.out.println("Size of linkedList: "+l.size);
-		l.addAnyPosition(90, 3);
-		System.out.println("Size of linkedList: "+l.size);
-		l.display();
-		l.addAnyPosition(100, l.size);
-		System.out.println("linkedlist");
-		l.display();
-		System.out.println("Size of linkedList: "+l.size);
-		System.out.println("End");
+		
 		
 	}
 
