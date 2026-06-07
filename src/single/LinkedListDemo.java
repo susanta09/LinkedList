@@ -1,5 +1,7 @@
 package single;
 
+import java.util.List;
+
 class LinkedList{
 	Node head;
 	int size;
@@ -13,6 +15,7 @@ class LinkedList{
 		}
 		
 	}
+	
 	public  void add(int data)
 	{
 		Node nN=new Node(data);
@@ -155,15 +158,38 @@ class LinkedList{
 		}
 		
 	}
+	public void detectCircle()
+	{
+		if(head==null)
+		{
+			System.out.println("Linked list is empty");
+			return;
+		}else {
+			Node slow=head;
+			Node fast=head;
+			while(fast!=null&&fast.next!=null)
+			{
+				slow=slow.next;
+				fast=fast.next.next;
+				if(slow==fast)
+				{
+					System.out.println("Circle is present");
+					break;
+				}
+			}
+			System.out.println("Circle is not present");
+		}
+		
+	}
 }
 
 public class LinkedListDemo {
 	public static void main(String[] args) {
 		
 		LinkedList l=new LinkedList();
-		l.add(8);
-		l.add(7);
-		l.add(3);
+//		l.add(8);
+//		l.add(7);
+//		l.add(3);
 //		System.out.println("linkedlist");
 //		l.display();
 //		System.out.println("Size of linkedList: "+l.size);
@@ -180,16 +206,17 @@ public class LinkedListDemo {
 //		l.display();
 //		System.out.println("Size of linkedList: "+l.size);
 //		System.out.println("End");
-		System.out.println("Size of linkedList: "+l.size);
-		l.display();
+//		System.out.println("Size of linkedList: "+l.size);
+//		l.display();
 //		System.out.println("Size of linkedList: "+l.size);
 //		l.removeFirst();
 //		l.removeFirst();
 //		l.display();
 //		l.removeLast();
-		l.removeAnyPosition(3);
+//		l.removeAnyPosition(3);
 		System.out.println("linkedlist");
 		l.display();
+		
 		
 		
 	}
