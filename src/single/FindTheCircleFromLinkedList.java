@@ -28,6 +28,27 @@ public class FindTheCircleFromLinkedList {
 		}
 		System.out.println("Circle is not present in given linked list");
 	}
+	public static void findSstangPointOfCircle(Node head)
+	{
+		Node slow=head;
+		Node fast=head;
+		while(fast!=null&&fast.next!=null)
+		{
+			slow=slow.next;
+			fast=fast.next.next;
+			if(slow==fast)
+			{
+				slow=head;
+				while(slow!=fast)
+				{
+					slow=slow.next;
+					fast=fast.next;
+				}
+				System.out.println("Stating point is "+slow.data);
+				return;
+			}
+		}
+	}
 	public static void main(String[] args) {
 		Node n1=new Node(1);
 		Node n2=new Node(2);
@@ -53,8 +74,10 @@ public class FindTheCircleFromLinkedList {
 //			temp=temp.next;
 //		}
 		System.out.println();
-//		n6.next=n3;
+		n6.next=n3;
 		findCircle(n1);
+		findSstangPointOfCircle(n1);
+		
 	}
 
 }
